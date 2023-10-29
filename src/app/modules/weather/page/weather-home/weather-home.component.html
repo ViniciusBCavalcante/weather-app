@@ -1,0 +1,25 @@
+<div class="search">
+    <form #form="ngForm" (submit)="onSubmit()">
+        <input
+            type="text"
+            placeholder="Buscar localização"
+            name="city"
+            [(ngModel)]="initialCityName"
+        />
+    </form>
+    <span>
+        <fa-icon
+            animation="fade"
+            style="--fa-animation-duration: 5s; cursor: pointer"
+            size="lg"
+            class="search-icon"
+            [icon]="searchIcon"
+            (click)="onSubmit()"
+        ></fa-icon>
+    </span>
+</div>
+
+<app-weather-card
+    *ngIf="weatherData"
+    [weatherDataInput]="weatherData"
+></app-weather-card>
